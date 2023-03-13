@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.container {
+    width: 450px;
+    height: 236px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ball-container {
+    display: grid;
+    place-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.ball-container:nth-child(2) > .ball, .ball-container:nth-child(2) > .shadow{
+    animation-delay: 125ms;
+}
+.ball-container:nth-child(3) > .ball, .ball-container:nth-child(3) > .shadow{
+    animation-delay: 250ms;
+}
+.ball-container:nth-child(4) > .ball, .ball-container:nth-child(4) > .shadow{
+    animation-delay: 375ms;
+}
+
+.ball {
+    width: 45px;
+    border-radius: 99999px;
+    height: 45px;
+    background-color: rgb(255, 0, 100);
+    animation: bounce 1s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes bounce {
+    25%, 75% {
+	width: 35px;
+	height: 50px;
+    }
+    50% {
+	width: 55px;
+	height: 15px;
+	transform: translateY(+100px);
+    }
+}
+
+.shadow {
+    width: 100px;
+    height: 30px;
+    border-radius: 99999%;
+    background-color: lightgray;
+    z-index: 0;
+    position: absolute;
+    transform: translateY(105px);
+    animation: shadow 1s ease-in-out infinite;
+}
+
+@keyframes shadow {
+    50% {
+	width: 55px;
+	height: 10px;
+	background-color: darkgray;
+    }
+}
